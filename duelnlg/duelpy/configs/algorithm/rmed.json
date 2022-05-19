@@ -1,0 +1,9 @@
+
+{
+    "RMED":
+    {
+        "algorithm": "RMED1",
+        "kweight": 0.3,
+        "pure_exploration": false
+    }
+}
