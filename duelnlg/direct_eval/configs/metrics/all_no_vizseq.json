@@ -1,0 +1,21 @@
+{
+    "nlgeval":
+    {
+        "name": "nlgeval",
+        "nthreads": 1
+    },
+    "moverscore":
+    {
+        "name": "moverscore",
+        "batch_size": 16
+    },
+    "bleurt":
+    {
+        "name": "bleurt",
+        "metirc_name": "bleurt",
+        "checkpoint": "checkpoints/bleurt/bleurt-base-128",
+        "output_dir": "checkpoints/bleurt/output_dir", 
+        "batch_size": 16,
+        "use_tpu": false
+    }
+}

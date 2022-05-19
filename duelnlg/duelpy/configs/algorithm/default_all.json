@@ -1,0 +1,91 @@
+{
+    "uniform":
+    {
+        "algorithm": "UniformExploration",
+        "pure_exploration": false
+    },
+    "IF":
+    {
+        "algorithm": "InterleavedFiltering",
+        "pure_exploration": false
+    },
+    "BTM":
+    {
+        "algorithm": "BeatTheMeanBandit",
+        "gamma": 1.3,
+        "pure_exploration": false
+    },
+    "SequentialElimination":
+    {
+        "algorithm": "SequentialElimination",
+        "failure_probability": 0.01,
+        "epsilon_lower": 0.0,
+        "epsilon_upper": 0.05,
+        "pure_exploration": true
+    },
+    "KnockoutTournament":
+    {
+        "algorithm": "KnockoutTournament",
+        "epsilon": 0.2,
+        "failure_probability": 0.09,
+        "stochasticity": 0.6,
+        "base": 2.0,
+        "pure_exploration": true
+    },
+    "single_elimination":
+    {
+        "algorithm": "SingleEliminationTop1Select",
+        "duels_per_comparison": 500,
+        "pure_exploration": true
+    },
+    "PlackettLucePACItem":
+    {
+        "algorithm": "PlackettLucePACItem",
+        "failure_probability": 0.05,
+        "epsilon": 0.001,
+        "pure_exploration": true
+    },
+    "RUCB":
+    {
+        "algorithm": "RelativeUCB",
+        "exploratory_constant": 0.51,
+        "pure_exploration": false
+    },
+    "RCS":
+    {
+        "algorithm": "RelativeConfidenceSampling",
+        "exploratory_constant": 0.501,
+        "pure_exploration": false
+    },
+    "RMED":
+    {
+        "algorithm": "RMED1",
+        "kweight": 0.3,
+        "pure_exploration": false
+    },
+    "Savage":
+    {
+        "algorithm": "Savage",
+        "failure_probability": 0.01,
+        "winner_type": "condorcet",
+        "pure_exploration": false
+    },
+    "CCB":
+    {
+        "algorithm": "CopelandConfidenceBound",
+        "exploratory_constant": 0.501,
+        "pure_exploration": false
+    },
+    "DTS":
+    {
+        "algorithm": "DoubleThompsonSampling",
+        "exploratory_constant": 0.51,
+        "pure_exploration": false
+    },
+    "DTS++":
+    {
+        "algorithm": "DoubleThompsonSamplingPlus",
+        "exploratory_constant": 0.51,
+        "pure_exploration": false
+    }
+}

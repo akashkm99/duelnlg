@@ -1,0 +1,7 @@
+{
+    "nlgeval":
+    {
+        "name": "nlgeval",
+        "nthreads": 1
+    }
+}

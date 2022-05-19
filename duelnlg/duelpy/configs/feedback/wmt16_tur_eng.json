@@ -1,0 +1,8 @@
+{
+    "wmt16-tur-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 10000,
+        "filename": "data/wmt16/processed/wmt16.tur-eng_processed.pkl"
+    }
+}

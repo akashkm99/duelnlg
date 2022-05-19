@@ -1,0 +1,8 @@
+{
+    "wmt16-deu-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 5000,
+        "filename": "data/wmt16/processed/wmt16.deu-eng_processed.pkl"
+    }
+}

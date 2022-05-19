@@ -1,0 +1,44 @@
+{
+    "wmt15-fin-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 500000,
+        "filename": "data/wmt15/processed/wmt15.fin-eng_processed.pkl"
+    },
+    "wmt15-rus-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 500000,
+        "filename": "data/wmt15/processed/wmt15.rus-eng_processed.pkl"
+    },
+    "wmt15-deu-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 500000,
+        "filename": "data/wmt15/processed/wmt15.deu-eng_processed.pkl"
+    },
+    "wmt16-tur-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 100000,
+        "filename": "data/wmt16/processed/wmt16.tur-eng_processed.pkl"
+    },
+    "wmt16-deu-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 50000,
+        "filename": "data/wmt16/processed/wmt16.deu-eng_processed.pkl"
+    },
+    "wmt16-ron-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 50000,
+        "filename": "data/wmt16/processed/wmt16.ron-eng_processed.pkl"
+    },
+    "wmt16-cze-eng":
+    {
+        "feedback": "nlg",
+        "num_steps": 2000,
+        "filename": "data/wmt16/processed/wmt16.cze-eng_processed.pkl"
+    }
+}

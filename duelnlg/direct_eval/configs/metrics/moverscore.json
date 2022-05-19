@@ -1,0 +1,8 @@
+{
+    "moverscore":
+    {
+        "name": "moverscore",
+        "batch_size": 64,
+        "device": "cpu"
+    }
+}

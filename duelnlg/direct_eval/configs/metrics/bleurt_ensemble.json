@@ -1,0 +1,13 @@
+{
+    "bleurt":
+    {
+        "name": "bleurt",
+        "metirc_name": "bleurt",
+        "checkpoint": "checkpoints/bleurt/bleurt-base-128",
+        "output_dir": "checkpoints/bleurt/output_dir", 
+        "batch_size": 64,
+        "dropout_during_inference": true,
+	"num_ensemble": 2,
+        "use_tpu": false
+    }
+}
