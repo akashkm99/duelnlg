@@ -43,3 +43,19 @@ bash scripts/preprocess/wmt15.sh
 ```
 ### Model Free Algorithms
 
+To perform experiments with model-free dueling bandits algorithms, use the ```duelnlg/duelpy/experiments/experiments.py``` script. It has the following arguments:
+
+* `--feedback-config`: A json config that specifies the list of datasets and their parameters. Use ```configs/feedback/wmt_all.json``` to run on all 7 WMT datasets.
+* `--algorithm-config`: Config file that specifies the dueling bandit algorithms and their parameters. Use ```configs/algorithm/rmed.json``` to run the RMED algorithm and refer to ```configs/algorithm/default_all.json``` for the default parameters for all algorithms.
+* `--output-dir`: Directory to save the results. (Default: ./results/bandits) 
+* `--num-runs`: The number of times each algorithm is run with different random seed (Default: 200) 
+* `--random-seed`: The base random seed to use (Default: 42)
+
+For example, to run all the dueling bandits algorithm (except: IF and PL which are quite slow) on the WMT 2016 tur->eng dataset with 50 runs use:
+```bash
+python duelnlg/duelpy/experiments/experiments.py \
+          --feedback-config ./configs/feedback/wmt16_tur_eng.json \
+          --algorithm-config ./configs/algorithm/default_all_no_if_pl.json \
+          --num-runs 50 
+```
+
