@@ -22,7 +22,7 @@ git clone https://github.com/akashkm99/duelnlg.git
 cd duelnlg
 pip install -e .
 ```
-For automatic evaluations, you also need to download nlgeval data:
+To use automatic metrics, you may also need to download nlgeval data:
 ```bash
 python ./scripts/download/nlg-eval --setup
 ```
