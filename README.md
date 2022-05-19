@@ -24,7 +24,7 @@ pip install -e .
 ```
 For automatic evaluations, you also need to download nlgeval data:
 ```bash
-nlg-eval --setup
+python ./scripts/download/nlg-eval --setup
 ```
 
 ## Experiments from Paper
