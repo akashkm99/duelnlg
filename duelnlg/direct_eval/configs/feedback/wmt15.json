@@ -1,7 +1,0 @@
-{
-    "wmt15":
-    {
-        "dev": "data/wmt13_14/processed/val.csv",
-        "test": "data/wmt15/processed/wmt15-human-judgements.csv"
-    }
-}

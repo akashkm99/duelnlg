@@ -459,7 +459,7 @@ def main():
     parser.add_argument(
         "--num-runs",
         dest="num_runs",
-        default=100,  # savage paper uses 1000
+        default=200,
         type=int,
         help="How often to run each algorithm. Results will be averaged. (default: 100)",
     )
@@ -475,7 +475,7 @@ def main():
     parser.add_argument(
         "--output-dir",
         dest="output_dir",
-        default="./results",
+        default="./results/bandits",
         type=str,
         help="Directory to dump the results and plots",
     )
