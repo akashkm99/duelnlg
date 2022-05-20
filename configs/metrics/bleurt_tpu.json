@@ -1,0 +1,14 @@
+{
+    "bleurt":
+    {
+        "name": "bleurt",
+        "metirc_name": "bleurt",
+        "checkpoint": "gs://akash_bucket/bleurt_checkpoints/bleurt_base",
+        "output_dir": "gs://akash_bucket/bleurt_experiments/predictions", 
+        "batch_size": 4096,
+        "use_tpu": true,
+        "tpu_name": "bleurt1", 
+        "tpu_zone": "europe-west4-a",
+        "num_tpu_cores": 8
+    }
+}

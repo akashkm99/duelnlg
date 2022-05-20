@@ -9,6 +9,7 @@ import time
 import pickle
 import logging
 import inspect
+import os
 
 from metrics import algorithms
 from pairwise_models import direct_to_pairwise
@@ -115,6 +116,8 @@ def main(args):
 
     results, predictions, metric_names = direct_to_pairwise(data, args.test_path)
 
+    if not os.path.exists(os.path.split(args.output_results)[0]):
+        os.makedirs(os.path.split(args.output_results)[0])
     results.to_csv(args.output_results)
     print("Written results to {}".format(args.output_results))
 
@@ -122,7 +125,6 @@ def main(args):
 
     runtime = time.time() - start_time
     print(f"Script took {round(runtime)}s.")
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

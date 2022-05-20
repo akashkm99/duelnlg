@@ -16,14 +16,14 @@ class UCBElimination(Default):
     ):
 
         self.metric_name = metric_name
-        self.metric_name_ensemble = self.metric_name_ensemble
+        self.metric_name_ensemble = metric_name_ensemble
         self.link_function = link_function
         self.num_ensemble = num_ensemble
         self.model_names = [
-            "{}_{}_{}_prob".format(model_name, i, link_function)
+            "{}_{}_{}_prob".format(metric_name, i, link_function)
             for i in range(num_ensemble)
         ]
-        self.model_names_pred = "{}_{}_{}_predictions".format(
+        self.model_names_pred = "{}_{}_predictions".format(
             metric_name, link_function
         )
 
@@ -45,6 +45,7 @@ class UCBElimination(Default):
                 ucb_preferences = []
 
                 for i in range(len(curr_samples)):
+                    sample = curr_samples[i]
                     probs = np.array(
                         [sample[model_name] for model_name in self.model_names]
                     )

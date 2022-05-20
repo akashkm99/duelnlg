@@ -12,6 +12,8 @@ class Uncertainity_UCBElimination(Uncertainity):
         num_ensemble,
         copeland_threshold=0.5,
         confidence_scale=2.0,
+        uncertainity_threshold=0.2,
+        uncertainity_strategy="BALD",
     ):
 
         super(Uncertainity_UCBElimination, self).__init__(
@@ -41,6 +43,7 @@ class Uncertainity_UCBElimination(Uncertainity):
                 ucb_preferences = []
 
                 for i in range(len(curr_samples)):
+                    sample = curr_samples[i]
                     probs = np.array(
                         [sample[model_name] for model_name in self.model_names]
                     )
@@ -60,6 +63,4 @@ class Uncertainity_UCBElimination(Uncertainity):
         arms_to_keep = arms[
             optimistic_copeland_scores > self.copeland_threshold
         ].tolist()
-        actual_winner = env.preference_matrix.get_condorcet_winner()
-        winner_arm_present = actual_winner in arms_to_keep
         env.arms = list(arms_to_keep)

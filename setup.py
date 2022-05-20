@@ -4,7 +4,7 @@ import setuptools
 from setuptools.command.install import install
 
 import subprocess
-
+import os
 
 with open("README.md", "r") as readme_file:
     LONG_DESCRIPTION = readme_file.read()
@@ -12,13 +12,7 @@ with open("README.md", "r") as readme_file:
 with open("requirements.txt") as req_file:
     install_requires = req_file.read().splitlines()
 
-
-class InstallLocalPackage(install):
-    def run(self):
-        install.run(self)
-        subprocess.call(
-            "python duelnlg/direct_eval/metrics/bleurt/setup.py install", shell=True
-        )
+install_requires += ["bleurt@file://localhost/" + os.getcwd() + "/duelnlg/direct_eval/metrics/bleurt#egg=bleurt"]
 
 
 setuptools.setup(
@@ -37,6 +31,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    cmdclass={"install": InstallLocalPackage},
     python_requires=">=3.6",
 )

@@ -33,6 +33,8 @@ class RMED1:
         self.random_state = random_state
         self.arms = list(self.feedback_mechanism.get_arms())
         self.arms_dict = dict(zip(np.arange(len(self.arms)), self.arms))
+        self.arms_dict_reverse = dict(zip(self.arms, np.arange(len(self.arms))))
+        
         self.kweight = kweight
         self.n_arms = len(self.arms)
         self.func_k = self.kweight * (self.n_arms ** 1.01)  # f(k)
@@ -88,9 +90,11 @@ class RMED1:
     def step(self):
         if self.n_arms > 1:
             arm1, arm2 = self.get_arms()
-            arm1, arm2, score = self.feedback_mechanism.get_duel(
+            arm1_name, arm2_name, score = self.feedback_mechanism.get_duel(
                 self.arms_dict[arm1], self.arms_dict[arm2]
             )
+            arm1 = self.arms_dict_reverse[arm1_name]
+            arm2 = self.arms_dict_reverse[arm2_name]
             if score is not None:
                 self.update_scores(arm1, arm2, score)
             else:

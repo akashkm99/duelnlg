@@ -27,7 +27,7 @@ class Uncertainity(Default):
             "{}_{}_{}_prob".format(metric_name_ensemble, i, link_function)
             for i in range(num_ensemble)
         ]
-        self.model_names_pred = "{}_{}_{}_predictions".format(
+        self.model_names_pred = "{}_{}_predictions".format(
             metric_name, link_function
         )
 
@@ -52,13 +52,11 @@ class Uncertainity(Default):
         return np.std(y_pred)
 
     def get_duel(self, sample):
-
-        if self.model_name not in sample:
-            raise NotImplementedError(
-                "Model {} is not implemented, please add the model's predictions to the sample".format(
-                    self.model_name
-                )
-            )
+        
+        for model_name in self.model_names:
+            if model_name not in sample:
+                raise NotImplementedError(
+                    "Prediction of metric {} is not saved, please add the metric predictions to the processed pkl file".format(model_name))
 
         probs = np.array([sample[model_name] for model_name in self.model_names])
         if self.uncertainity_strategy == "BALD":
@@ -74,4 +72,8 @@ class Uncertainity(Default):
             )
 
     def duel(self, sample):
+        
+        if self.model_names_pred not in sample:
+            print ("Prediction of metric {} is not saved, please add the metric's predictions to the processed .pkl file".format(self.model_names_pred))
+        
         return sample[self.model_names_pred]

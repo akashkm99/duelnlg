@@ -1,0 +1,10 @@
+{
+    "mixing-bleurt-0.5":
+    {
+        "model": "Mixing",
+        "metric_name": "bleurt", 
+	"link_function": "Linear",
+        "mixing_probability": 0.5,
+        "mixing_strategy": "hard"
+    }
+}

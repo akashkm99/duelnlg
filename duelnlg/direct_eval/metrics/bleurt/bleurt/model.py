@@ -137,6 +137,7 @@ def create_model(
     per_example_loss: <float32>[batch_size]
     pred: <float32>[batch_size]
   """
+    
     model = modeling.BertModel(
         config=bert_config,
         is_training=is_training,
@@ -192,12 +193,11 @@ def model_fn_builder(
     dropout_during_inference=False,
 ):
     """Returns `model_fn` closure."""
-
     def model_fn(features, labels, mode, params):  # pylint: disable=unused-argument
         """The `model_fn` for Estimator/TPUEstimator."""
 
         logging.info("*** Building Regression BERT Model ***")
-        tf.set_random_seed(55555)
+        #tf.set_random_seed(55555)
 
         logging.info("*** Features ***")
         for name in sorted(features.keys()):
@@ -216,7 +216,7 @@ def model_fn_builder(
             is_training = True
         else:
             is_training = mode == tf.estimator.ModeKeys.TRAIN
-
+        
         total_loss, per_example_loss, pred = create_model(
             bert_config,
             is_training,

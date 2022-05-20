@@ -31,8 +31,6 @@ class Mixing(Default):
         self.random_state = (
             random_state if random_state is not None else np.random.RandomState()
         )
-        self.lower_threhold = lower_threhold
-        self.upper_threshold = upper_threshold
 
     def get_duel(self, sample):
         return self.random_state.binomial(n=1, p=self.mixing_probability)

@@ -1,0 +1,12 @@
+{
+    "bald-bleurt-base-0.0025":
+    {
+        "model": "Uncertainity",
+        "metric_name": "bleurt",
+	"metric_name_ensemble": "bleurt",
+	"link_function": "Linear",
+	"num_ensemble": 20,
+        "uncertainity_threshold": 0.0025,
+        "uncertainity_strategy": "BALD"
+    }
+}

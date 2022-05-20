@@ -78,11 +78,8 @@ def update_processed(processed_dir, predictions, metric_names):
                 unique_id = sample["unique_id"]
                 if unique_id == "":
                     continue
-                try:
-                    values = predictions.loc[unique_id, keys].values.tolist()
-                    sample.update(dict(zip(keys, values)))
-                except:
-                    continue
+                values = predictions.loc[unique_id, keys].values.tolist()
+                sample.update(dict(zip(keys, values)))
         fp.close()
         with open(filename, "wb") as fp:
             pickle.dump(data, fp)

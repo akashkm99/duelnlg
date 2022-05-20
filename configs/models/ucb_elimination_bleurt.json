@@ -1,0 +1,12 @@
+{
+    "UCBElimination-bluert":
+    {
+        "model": "UCBElimination",
+        "metric_name": "bleurt",
+	"metric_name_ensemble": "bleurt",
+	"link_function": "Linear",
+	"num_ensemble": 20,
+        "copeland_threshold": 0.8,
+        "confidence_scale": 0.5
+    }
+}
