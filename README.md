@@ -59,3 +59,41 @@ python duelnlg/duelpy/experiments/experiments.py \
           --num-runs 50 
 ```
 
+### Model Based Algorithms 
+
+#### Download Training and Validation Data
+
+To use direct evaluation metrics, we need to tune a few hyperparameters (e.g. thresholds for the preference probabilities) on a validation set. For training any end-to-end metric for pairwise prediction, we would also require a training set. 
+
+To create the train and validation datasets for WMT, we use data from WMT 2013 and 2014:
+```
+bash scripts/prepare_train_val/wmt.sh
+```
+#### Automatic Evaluation Metrics
+
+To run the Bleurt model, you need to download the model checkpoint:
+
+```bash
+bash scripts/download/bleurt_ckpt.sh
+```
+
+To run automatic metrics and save the predictions, use the ```duelnlg/direct_eval/evaluation.py``` script. It has the following arguments:
+
+* `--metrics-config`: A json config that specifies the list of automatic metrics and their parameters. Use `configs/metrics/bleurt.json` to use bleurt and refer to `configs/metrics/all.json` to run all metrics. 
+* `--val-path` and `test-path`: CSV files with the validation (for tuning) and test datasets.  E.g. for WMT 2016, it's `./data/wmt13_14/processed/val.csv` and `data/wmt16/processed/wmt16-human-judgements.csv` respectively. 
+* `--processed-dir`: Directory with the processed .pkl files. E.g. for WMT 2016, it's `data/wmt16/processed`
+* `--ensemble`: Whether to perform mulitple model forward passes with dropout for uncertainity estimation. Applicable only for Bleurt (Default: False) 
+* `--multiref`: Whether the dataset has multiple reference texts. (Default: True)
+
+For example, to run the Bleurt metric on WMT 2016 datasets, use the following:
+```bash
+python duelnlg/direct_eval/evaluation.py \
+          --metrics ./configs/metrics/bleurt.json \
+          --val-path ./data/wmt13_14/processed/val.csv \
+          --test-path ./data/wmt16/processed/wmt16-human-judgements.csv \
+          --output-results ./results/metrics/bleurt.csv \
+          --processed-dir ./data/wmt16/processed
+```
+
+
+
