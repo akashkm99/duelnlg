@@ -1,6 +1,6 @@
 # DuelNLG
 This repository contains code for evaluating NLG Models as described in the following paper:  
->[Active Evaluation: Efficient NLG Evaluation with Few Pairwise Comparisons](http://homes.cs.washington.edu/~marcotcr/acl20_checklist.pdf)  
+>[Active Evaluation: Efficient NLG Evaluation with Few Pairwise Comparisons](https://aclanthology.org/2022.acl-long.600.pdf)  
 > Akash Kumar Mohankumar, Mitesh M. Khapra. 
 > Association for Computational Linguistics (ACL), 2022
 
